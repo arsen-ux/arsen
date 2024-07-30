@@ -1,0 +1,14 @@
+PIP
+pip install name: устанавливает зависимость
+pip freeze: показывает зависимость
+
+git config --global user.name "FIRST_NAME LAST_NAME"
+git config --global user.email "MY_NAME@example.com"
+
+git init: связывает гит с вашим проектом
+
+git remote add origin ссылка на ваш резиторий к репозитору
+
+всегда
+git add . :добавляет файлы
+git commit -m 'название'
