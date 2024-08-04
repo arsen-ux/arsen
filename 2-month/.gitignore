@@ -1,7 +1,4 @@
 .idea
 .vs
-
-__pycache__\
+__pycash__\
 .venv
-test.py
-test2.py

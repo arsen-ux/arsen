@@ -1,14 +1,18 @@
 PIP
 pip install name: устанавливает зависимость
 pip freeze: показывает зависимость
-
+1 раз
 git config --global user.name "FIRST_NAME LAST_NAME"
 git config --global user.email "MY_NAME@example.com"
-
+1-Раз
 git init: связывает гит с вашим проектом
-
 git remote add origin ссылка на ваш резиторий к репозитору
 
 всегда
 git add . :добавляет файлы
 git commit -m 'название'
+git push origin master/main
+
+удаление
+git rm --cached namefile: стирает файл
+git rm --cached -r удаляет файлы
