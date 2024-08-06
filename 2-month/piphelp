@@ -16,3 +16,6 @@ git push origin master/main
 удаление
 git rm --cached namefile: стирает файл
 git rm --cached -r удаляет файлы
+
+
+git clone url  репозитория(сайт)
