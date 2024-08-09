@@ -1,36 +1,74 @@
 class SuperHero:
-    people = 'people'
-
-    def __init__(self, name, nickname, superpower, healthypoints, catchphrase):
+    def __init__(self, name, hp, damage):
         self.name = name
-        self.nickname = nickname
-        self.superpower = superpower
-        self.healthypoints = healthypoints
-        self.catchphrase = catchphrase
+        self.hp = hp
+        self.damage = damage
+        self.fly = False
 
-    def имя(self):
-        return f'Имя героя: {self.name}'
+    def multiply_hp(self):
+        self.hp **= 2
+        self.fly = True
 
-    def удвоенное_здоровье(self):
-        self.healthypoints *= 2
-        print(f"Здоровье героя удвоено: {self.healthypoints}")
-
-    def __str__(self):
-        return f'Прозвище: {self.nickname}, Суперспособность: {self.superpower}, Здоровье: {self.healthypoints}'
-
-    def __len__(self):
-        return len(self.catchphrase)
+    def true_phrase(self):
+        print("True in the True_phrase")
 
 
-hero = SuperHero('Тони Старк', 'Железный человек', 'костюм', 1000,
-                 'Гений, миллиардер, плейбой, филантроп. Этот мир далёк от совершенства, но нам в нём жить.')
+
+class AirHero(SuperHero):
+    def __init__(self, name, hp, damage, air_speed):
+        super().__init__(name, hp, damage)
+        self.air_speed = air_speed
+
+class LandHero(SuperHero):
+    def __init__(self, name, hp, damage, ground_speed):
+        super().__init__(name, hp, damage)
+        self.ground_speed = ground_speed
 
 
-print(hero.имя())
-hero.удвоенное_здоровье()
-print(hero)
-print(f"Длина коронной фразы: {len(hero)}")
+class SpaceHero(SuperHero):
+    def __init__(self, name, hp, damage, space_speed):
+        super().__init__(name, hp, damage)
+        self.space_speed = space_speed
 
+
+
+air_hero = AirHero("Wind Walker", 100, 15, 300)
+land_hero = LandHero("Earth Shaker", 200, 25, 80)
+space_hero = SpaceHero("Star Ranger", 150, 20, 500)
+
+air_hero.multiply_hp()
+land_hero.multiply_hp()
+space_hero.multiply_hp()
+
+
+print(air_hero.hp, air_hero.fly)  # 10000 True
+print(land_hero.hp, land_hero.fly)  # 40000 True
+print(space_hero.hp, space_hero.fly)  # 22500 True
+
+
+air_hero.true_phrase()
+
+
+class Villain(LandHero):
+    def __init__(self, name, hp, damage, ground_speed):
+        super().__init__(name, hp, damage, ground_speed)
+        self.people = "monster"
+
+    def gen_x(self):
+        pass
+
+    def crit(self, power):
+        self.damage **= power
+
+
+
+villain = Villain("Dark Lord", 300, 50, 60)
+villain.crit(2)
+print(villain.damage)
+
+
+villain.crit(2)
+print(land_hero.damage)
 # git add . :добавляет файлы
 # git commit -m 'название'
 # git push origin master/main
